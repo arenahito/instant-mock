@@ -19,8 +19,9 @@
     "dev": "nodemon --watch src/data --watch src/server --exec babel-node -- src/server/app.js",
     "build": "cross-env NODE_ENV=production node tools/build.js",
     "start": "cross-env NODE_ENV=production node dist/server/app.js",
-    "test": "cross-env NODE_ENV=test nyc --reporter=text --reporter=html --reporter=lcov ava",
+    "test": "cross-env NODE_ENV=test nyc --reporter=text --reporter=html ava",
     "testw": "cross-env NODE_ENV=test ava -w",
+    "coverage": "cross-env NODE_ENV=test nyc report --reporter=text-lcov ava && codecov",
     "clean": "",
     "lint": "eslint src/server/** src/client/** src/common/**",
     "doc": "jsdoc -c conf.json -r -d reports/doc"
@@ -88,6 +89,7 @@
     "babili-webpack-plugin": "0.0.11",
     "browser-env": "^2.0.26",
     "classnames": "^2.2.5",
+    "codecov": "^2.1.0",
     "cross-env": "^3.2.3",
     "css-loader": "^0.27.3",
     "del": "^2.2.2",
