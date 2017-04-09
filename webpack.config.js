@@ -1,9 +1,10 @@
 const webpack = require('webpack');
 const BabiliPlugin = require('babili-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/client/app.js',
+    app: path.join(__dirname, 'src/client/app.js'),
     vendor: [
       'babel-polyfill',
       'lodash',
@@ -13,7 +14,7 @@ module.exports = {
     ],
   },
   output: {
-    path: './dist/public/scripts',
+    path: path.join(__dirname, 'dist/public/scripts'),
     filename: '[name].bundle.js',
   },
   module: {
