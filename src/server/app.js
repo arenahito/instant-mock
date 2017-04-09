@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import path from 'path';
 import SocketIO from 'socket.io';
-import babelRegister from 'babel-register';
 
 import MockLogManager from './mock/mock-log-manager';
 import MockManager from './mock/mock-manager';
@@ -12,8 +11,6 @@ import ServerSettingsManager from './setting/server-settings-manager';
 import UserSettingsManager from './setting/user-settings-manager';
 import registerRoutes from './routes';
 import setupForDevelopment from './development';
-
-babelRegister({ only: './mock/**' });
 
 ServerSettingsManager.loadSync();
 const serverSettings = ServerSettingsManager.getSettings();

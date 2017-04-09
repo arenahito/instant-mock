@@ -1,4 +1,4 @@
-export default (req) => {
+exports.default = function (req) {
   return {
     status: 200,
     headers: {

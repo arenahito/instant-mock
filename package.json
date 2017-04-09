@@ -1,6 +1,6 @@
 {
   "name": "instant-mock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Quick and Easy web API mock server.",
   "main": "bin/imock",
   "bin": {
@@ -58,7 +58,6 @@
     "report-dir": "./reports/coverage"
   },
   "dependencies": {
-    "babel-register": "^6.24.0",
     "body-parser": "^1.17.0",
     "commander": "^2.9.0",
     "express": "^4.15.1",
