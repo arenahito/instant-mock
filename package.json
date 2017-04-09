@@ -21,7 +21,7 @@
     "start": "cross-env NODE_ENV=production node dist/server/app.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=text --reporter=html ava",
     "testw": "cross-env NODE_ENV=test ava -w",
-    "coverage": "cross-env NODE_ENV=test nyc report --reporter=text-lcov ava && codecov",
+    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov ava && codecov",
     "clean": "",
     "lint": "eslint src/server/** src/client/** src/common/**",
     "doc": "jsdoc -c conf.json -r -d reports/doc"
