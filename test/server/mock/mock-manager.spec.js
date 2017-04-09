@@ -17,18 +17,13 @@ test('#loadSync is should success when not exists mock directory', () => {
 });
 
 test('#loadSync is should register mock apis for each methods when lowercase method path', (t) => {
-  const app = express();
-  sinon.spy(app, 'get');
-  sinon.spy(app, 'put');
-  sinon.spy(app, 'post');
-  sinon.spy(app, 'patch');
-  sinon.spy(app, 'delete');
+  const app = createAppMock();
 
   const manager = new TestMockManager(path.join(MOCK_PATH, 'methods-lowercase'));
   manager.loadSync(app);
 
-  t.true(app.get.calledTwice);
-  t.is(app.get.args[1][0], '/mock/test');
+  t.true(app.get.calledOnce);
+  t.is(app.get.args[0][0], '/mock/test');
 
   t.true(app.put.calledOnce);
   t.is(app.put.args[0][0], '/mock/test');
@@ -44,18 +39,13 @@ test('#loadSync is should register mock apis for each methods when lowercase met
 });
 
 test('#loadSync is should register mock apis for each methods when uppercase method path', (t) => {
-  const app = express();
-  sinon.spy(app, 'get');
-  sinon.spy(app, 'put');
-  sinon.spy(app, 'post');
-  sinon.spy(app, 'patch');
-  sinon.spy(app, 'delete');
+  const app = createAppMock();
 
   const manager = new TestMockManager(path.join(MOCK_PATH, 'methods-uppercase'));
   manager.loadSync(app);
 
-  t.true(app.get.calledTwice);
-  t.is(app.get.args[1][0], '/mock/test');
+  t.true(app.get.calledOnce);
+  t.is(app.get.args[0][0], '/mock/test');
 
   t.true(app.put.calledOnce);
   t.is(app.put.args[0][0], '/mock/test');
@@ -71,9 +61,7 @@ test('#loadSync is should register mock apis for each methods when uppercase met
 });
 
 test('#loadSync is should register mock apis when method path was nested', (t) => {
-  const app = express();
-  sinon.spy(app, 'post');
-
+  const app = createAppMock();
   const manager = new TestMockManager(path.join(MOCK_PATH, 'nested'));
   manager.loadSync(app);
 
@@ -84,9 +72,7 @@ test('#loadSync is should register mock apis when method path was nested', (t) =
 });
 
 test('#loadSync is should register mock api when parameter was included in path', (t) => {
-  const app = express();
-  sinon.spy(app, 'delete');
-
+  const app = createAppMock();
   const manager = new TestMockManager(path.join(MOCK_PATH, 'path-params'));
   manager.loadSync(app);
 
@@ -258,9 +244,6 @@ test('#getParsers is should throw error when parser was not found', (t) => {
   t.throws(manager.getParsers(generateId('/mock/test', 'POST')));
 });
 
-
-
-// TODO: xxx
 test.serial('#getParsers is should throw error when "glob" was failed', (t) => {
   MockManagerRewireAPI.__set__('glob', (pattern, options, cb) => {
     cb(new Error());
@@ -274,10 +257,6 @@ test.serial('#getParsers is should throw error when "glob" was failed', (t) => {
 
   MockManagerRewireAPI.__ResetDependency__('glob');
 });
-
-
-
-
 
 test('#updateCurrentParser is should throw error when invalid id', (t) => {
   const manager = new TestMockManager(path.join(MOCK_PATH, 'mocks-with-parsers'));
@@ -314,4 +293,14 @@ test('#updateCurrentParser is should call UserSettingsManager#saveUserMockSettin
 
 function generateId(url, method) {
   return sha('sha1').update(`${url}@${method}`).digest('base64');
+}
+
+function createAppMock() {
+  return {
+    get: sinon.stub(),
+    put: sinon.stub(),
+    post: sinon.stub(),
+    patch: sinon.stub(),
+    delete: sinon.stub(),
+  };
 }
