@@ -1,7 +1,7 @@
 {
   "name": "instant-mock",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Quick and Easy web API mock server.",
   "main": "bin/imock",
   "bin": {
     "instant-mock": "bin/imock",
@@ -13,7 +13,8 @@
   },
   "keywords": [
     "test",
-    "mock"
+    "mock",
+    "rest-api"
   ],
   "scripts": {
     "dev": "nodemon --watch src/data --watch src/server --exec babel-node -- src/server/app.js",
