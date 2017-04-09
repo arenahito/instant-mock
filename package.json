@@ -1,6 +1,6 @@
 {
   "name": "instant-mock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Quick and Easy web API mock server.",
   "main": "bin/imock",
   "bin": {
