@@ -1,0 +1,11 @@
+{
+  "source": {
+    "include": ["src/client", "src/server", "src/common"],
+    "includePattern": ".+\\.(js|vue)?$"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/jsdoc-strip-async-await",
+    "node_modules/jsdoc-vue"
+  ]
+}

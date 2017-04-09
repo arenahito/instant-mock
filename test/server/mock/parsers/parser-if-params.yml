@@ -1,0 +1,11 @@
+- if:
+    params:
+      key1: value1
+      key2: value2
+  then:
+    status: 200
+    rawBody: 'match!!'
+
+- then:
+    status: 500
+    rawBody: 'test body'

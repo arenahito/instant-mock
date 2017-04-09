@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": true
+      }
+    }]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["rewire"]
+    },
+    "production": {
+      "presets": ["babili"]
+    }
+  }
+}

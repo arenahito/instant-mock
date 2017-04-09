@@ -1,0 +1,6 @@
+api:
+  /UPPERCASE/@GET:
+    parser: parser-upper-case.yml
+
+  /lowercase/@get:
+    parser: parser-lower-case.yml

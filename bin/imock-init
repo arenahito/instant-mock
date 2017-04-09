@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+const fsp = require('fs-promise');
+const yaml = require('js-yaml');
+const path = require('path');
+
+fsp.writeFile('server.yml', yaml.safeDump({
+  http: {
+    host: 'localhost',
+    port: 3000,
+  },
+  socket: {
+    host: 'localhost',
+    port: 3010,
+  },
+}));
+
+fsp.copy(path.join(__dirname, '../mock'), './mock');

@@ -1,0 +1,20 @@
+- if:
+    query:
+      key1: value1
+  then:
+    status: 201
+
+- if:
+    query:
+      key1: value2
+  then:
+    status: 202
+
+- if:
+    query:
+      key1: value3
+  then:
+    status: 203
+
+- then:
+    status: 500

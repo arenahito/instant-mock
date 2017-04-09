@@ -1,0 +1,7 @@
+- if:
+    query:
+      key1: value1
+
+- then:
+    status: 500
+    rawBody: 'test body'

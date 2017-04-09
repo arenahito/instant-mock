@@ -1,0 +1,29 @@
+- if:
+    params:
+      id: 0
+  then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: user-0.json
+
+- if:
+    params:
+      id: 1
+  then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: user-1.json
+
+- if:
+    params:
+      id: 2
+  then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: user-2.json
+
+- then:
+    status: 404

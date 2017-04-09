@@ -1,0 +1,5 @@
+- then:
+    status: 200
+    headers:
+      Content-Type: application/text
+    rawBody: 'test body'

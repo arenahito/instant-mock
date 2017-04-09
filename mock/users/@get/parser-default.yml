@@ -1,0 +1,23 @@
+- if:
+    query:
+      group: team-a
+  then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: team-a.json
+
+- if:
+    query:
+      group: team-b
+  then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: team-b.json
+
+- then:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: all.json

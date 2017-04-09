@@ -1,0 +1,6 @@
+api:
+  /users/@get:
+    parser: parser-a.yml
+
+  /users/:id/@get:
+    parser: parser-b.yml

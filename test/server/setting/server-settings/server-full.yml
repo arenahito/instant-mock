@@ -1,0 +1,7 @@
+http:
+  host: 1.2.3.4
+  port: 1234
+
+socket:
+  host: 10.20.30.40
+  port: 9876

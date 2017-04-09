@@ -1,0 +1,20 @@
+- if:
+    query:
+      id: 0
+  then:
+    status: 204
+
+- if:
+    query:
+      id: 1
+  then:
+    status: 204
+
+- if:
+    query:
+      id: 2
+  then:
+    status: 204
+
+- then:
+    status: 404

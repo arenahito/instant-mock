@@ -1,0 +1,11 @@
+.nyc_output/
+.vscode/
+reports/
+node_modules/
+dist/
+work/
+/server.yml
+/user.yml
+logs
+*.log
+npm-debug.log*

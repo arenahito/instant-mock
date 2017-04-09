@@ -1,0 +1,6 @@
+- then:
+    status: 200
+    headers:
+      Content-Type: application/text
+      X-Mock: dummy
+    rawBody: 'test body'

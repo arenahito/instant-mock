@@ -1,0 +1,5 @@
+- if:
+    query:
+      key1: value1
+  then:
+    status: 200

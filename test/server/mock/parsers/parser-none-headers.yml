@@ -1,0 +1,3 @@
+- then:
+    status: 200
+    rawBody: 'test body'

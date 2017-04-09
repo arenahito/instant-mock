@@ -1,0 +1,20 @@
+- if:
+    params:
+      id: 0
+  then:
+    status: 204
+
+- if:
+    params:
+      id: 1
+  then:
+    status: 204
+
+- if:
+    params:
+      id: 2
+  then:
+    status: 204
+
+- then:
+    status: 404

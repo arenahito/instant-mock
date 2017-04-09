@@ -1,0 +1,119 @@
+{
+  "name": "instant-mock",
+  "version": "0.1.0",
+  "description": "",
+  "main": "bin/imock",
+  "bin": {
+    "instant-mock": "bin/imock",
+    "imock": "bin/imock"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arenahito/instant-mock.git"
+  },
+  "keywords": [
+    "test",
+    "mock"
+  ],
+  "scripts": {
+    "dev": "nodemon --watch src/data --watch src/server --exec babel-node -- src/server/app.js",
+    "build": "cross-env NODE_ENV=production node tools/build.js",
+    "start": "cross-env NODE_ENV=production node dist/server/app.js",
+    "test": "cross-env NODE_ENV=test nyc --reporter=text --reporter=html --reporter=lcov ava",
+    "testw": "cross-env NODE_ENV=test ava -w",
+    "clean": "",
+    "lint": "eslint src/server/** src/client/** src/common/**",
+    "doc": "jsdoc -c conf.json -r -d reports/doc"
+  },
+  "author": "Matsuoka Takashi",
+  "license": "MIT",
+  "ava": {
+    "files": [
+      "test/**/*.spec.js"
+    ],
+    "source": [
+      "src/**/*.js",
+      "src/**/*.vue"
+    ],
+    "failFast": false,
+    "verbose": true,
+    "tap": false,
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js",
+      "./test/helpers/disable-logger.js"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "extension": [
+      ".vue"
+    ],
+    "exclude": [
+      "test/**",
+      "**/*.vue"
+    ],
+    "report-dir": "./reports/coverage"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.0",
+    "body-parser": "^1.17.0",
+    "commander": "^2.9.0",
+    "express": "^4.15.1",
+    "fs-promise": "^2.0.0",
+    "glob": "^7.1.1",
+    "isomorphic-fetch": "^2.2.1",
+    "js-yaml": "^3.8.2",
+    "jsonfile": "^2.4.0",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.1",
+    "on-finished": "^2.3.0",
+    "sha.js": "^2.4.8",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.2",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-rewire": "^1.0.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.4.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-babili": "0.0.12",
+    "babel-preset-env": "^1.2.0",
+    "babili": "0.0.12",
+    "babili-webpack-plugin": "0.0.11",
+    "browser-env": "^2.0.26",
+    "classnames": "^2.2.5",
+    "cross-env": "^3.2.3",
+    "css-loader": "^0.27.3",
+    "del": "^2.2.2",
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsdoc": "^3.0.0",
+    "eslint-plugin-vue": "^2.0.1",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.4.3",
+    "jsdoc-strip-async-await": "^0.1.0",
+    "jsdoc-vue": "^1.0.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.1.2",
+    "sinon": "^1.17.7",
+    "socket.io-client": "^1.7.3",
+    "style-loader": "^0.16.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "supertest": "^3.0.0",
+    "vue": "^2.2.4",
+    "vue-loader": "^11.2.0",
+    "vue-node": "^1.0.2",
+    "vue-template-compiler": "^2.2.4",
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.1",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

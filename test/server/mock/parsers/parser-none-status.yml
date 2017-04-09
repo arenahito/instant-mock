@@ -1,0 +1,4 @@
+- then:
+    headers:
+      Content-Type: application/text
+    rawBody: 'test body'
