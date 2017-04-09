@@ -148,14 +148,18 @@ function parseRequestByCondition(req, condition) {
  * @returns {boolean} Return true if a match.
  */
 function isMatchRequestAndConditions(req, conditionIf) {
+  /* eslint-disable eqeqeq */
+
   // A "params" value comparision by abstract, because Express.js path
   // parameters is string but parser "params" could set a numeric.
   return _.isMatchWith(
       req.params,
       conditionIf.params || {},
-      (objValue, srcValue) => objValue === srcValue)
+      (objValue, srcValue) => objValue == srcValue)
       && _.isMatch(req.query, conditionIf.query || {})
       && _.isMatch(req.body, conditionIf.body || {});
+
+  /* eslint-enable eqeqeq */
 }
 
 function parseRequestByResponseDetail(then) {
