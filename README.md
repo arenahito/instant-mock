@@ -64,7 +64,7 @@ If you need route parameters, can use `PARAM` directory.
 Request for mock is parsed by user definition parser file.
 User definition parser file name start with "parser-" and format is yaml or js.
 
-Try create a parser file below, and access to `http://localhost:3000/mock/users` after restart the instant-mock.
+Try create a parser file below, and access to `http://localhost:3000/mock/books` after restart the instant-mock.
 
 **/mock/books/@get/parser-default.yml:**
 
@@ -101,7 +101,7 @@ body: 'body.json'    # Response body file.
 
 Parser file can define multiple resonse for switing by request. Define request parsing rule to `if`, and response to `then`.
 
-Try create a parser file below, and access to `http://localhost:3000/mock/users/:id` after restart the instant-mock.
+Try create a parser file below, and access to `http://localhost:3000/mock/books/:id` after restart the instant-mock.
 If `:id` is "1" then response body is "user 1", and if it is "3" then response is 404.
 
 **./mock/books/$id/@get/parser-default.yml:**
