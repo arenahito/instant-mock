@@ -1,11 +1,10 @@
 {
   "name": "instant-mock",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Quick and Easy web API mock server.",
-  "main": "bin/imock",
+  "main": "bin/instant-mock",
   "bin": {
-    "instant-mock": "bin/imock",
-    "imock": "bin/imock"
+    "instant-mock": "bin/instant-mock"
   },
   "repository": {
     "type": "git",
